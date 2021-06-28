@@ -7,9 +7,9 @@ STD = 93c
 # option flags
 OPTS = --std=$(STD)
 
-.PHONY : work user_library one_hot vector_tools encoder flip_flop run clean
+.PHONY : work userlib one_hot vector_tools encoder flip_flop run clean
 
-work : WORK 	= user_library
+work : WORK 	= 	userlib
 work : FILES 	= 	one_hot.vhd 																\
 					vector_tools.vhd 															\
 					encoder.vhd 																\
@@ -19,22 +19,22 @@ work : FILES 	= 	one_hot.vhd 																\
 work : $(WORK)-obj93.cf
 
 # default - all libraries
-user_library : WORK = user_library
-user_library : FILES = 	one_hot.vhd 															\
-						vector_tools.vhd 														\
-						encoder.vhd 															\
-						flip_flop.vhd 		
-user_library : $(WORK)-obj93.cf
+userlib : WORK 	= 	userlib
+userlib : FILES = 	one_hot.vhd 															\
+					vector_tools.vhd 														\
+					encoder.vhd 															\
+					flip_flop.vhd 		
+userlib : $(WORK)-obj93.cf
 
 one_hot : WORK = one_hot
 one_hot : FILES = one_hot.vhd
 one_hot : $(WORK)-obj93.cf
 
-vector_tools : WORK = vector_tools
-vector_tools : FILES = vector_tools.vhd
+vector_tools : WORK  = 	vector_tools
+vector_tools : FILES = 	vector_tools.vhd
 vector_tools : $(WORK)-obj93.cf
 
-encoder 	 : WORK = encoder
+encoder 	 : WORK  = 	encoder
 encoder 	 : FILES = 	one_hot.vhd																\
 						vector_tools.vhd 														\
 						encoder.vhd
